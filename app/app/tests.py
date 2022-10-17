@@ -1,14 +1,25 @@
-from django.test import TestCase
+"""
+Sample tests
+"""
 
-from app.calc import add, subtract
+from unittest import result
+
+from django.test import SimpleTestCase
+
+from app import calc
 
 
-class CalcTests(TestCase):
+class CalcTests(SimpleTestCase):
+    """Test the calc module"""
 
     def test_add_numbers(self):
         """Test that two nums are added together"""
-        self.assertEqual(add(3,8), 11)
+        result = calc.add(5, 6)
+        
+        self.assertEqual(result, 11)
 
     def test_subtract_numbers(self):
-        """Test that two nums are properly subtracted and returned"""
-        self.assertEqual(subtract(5,11), 6)
+        """Test that numbers are substracted properly"""
+        result = calc.subtract(10, 15)
+
+        self.assertEqual(result, 5)
